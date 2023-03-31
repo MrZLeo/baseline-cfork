@@ -1,4 +1,5 @@
 from flask import Flask
+import time
 
 app = Flask(__name__)
 
@@ -7,4 +8,10 @@ def hello_world():
     return 'Hello python!\n'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=int(8081))
+    # time that start serverless function
+    startTime = int(round(time.time() * 1000))
+    logf = open("log.txt", "w")
+    logf.write(str(startTime))
+    logf.close()
+
+    app.run(host='0.0.0.0',port=int(8080))
