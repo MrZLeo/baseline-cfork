@@ -5,6 +5,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+    startTime = int(round(time.time() * 1000))
+    logf = open("log.txt", "w")
+    logf.write("finish at: " + str(startTime))
+    logf.close()
     return 'Hello python!\n'
 
 if __name__ == '__main__':
