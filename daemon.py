@@ -17,5 +17,5 @@ if __name__ == '__main__':
     logf = open("log.txt", "a")
     logf.write(str(startTime))
     logf.close()
-
-    app.run(host='0.0.0.0',port=int(8080))
+    from waitress import serve
+    serve(app, host='0.0.0.0',port=int(8080))
